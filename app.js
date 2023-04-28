@@ -319,6 +319,7 @@ function whileSearchByName(searchValue) {
 // console.log("the array length of names is: " + names.length);
 // console.log("The last index is: " + names.length - 1);
 
+// My own practice =================
 nbaRings();
 function nbaRings() {
   const mostRings = [];
@@ -326,8 +327,29 @@ function nbaRings() {
     const rings = player.championships;
     if (rings > 3) {
       mostRings.push(player);
-      console.log(player.name);
+      // console.log(player.name);
     }
   }
-  console.log(mostRings);
+  // console.log(mostRings);
+}
+
+const nameSorted = names.sort();
+console.log(nameSorted);
+
+const yearsSorted = years.sort();
+console.log(yearsSorted);
+
+const teacherNameSorted = teachers.sort(sortTeacherNames);
+console.log(teacherNameSorted);
+
+function sortTeacherNames(obj1, obj2) {
+  return obj1.name.localeCompare(obj2.name);
+}
+
+const teacherAgeSorted = teachers.sort(sortTeacherAge);
+console.log("age sorted");
+console.log(teacherAgeSorted);
+
+function sortTeacherAge(obj1, obj2) {
+  return obj1.age - obj2.age;
 }
