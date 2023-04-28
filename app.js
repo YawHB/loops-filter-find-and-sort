@@ -80,6 +80,99 @@ const teacher = {
   image: "https://share.cederdorff.com/images/petl.jpg",
 };
 
+const nbaStars = [
+  {
+    name: "Michael Jordan",
+    team: "Chicago Bulls",
+    yearsActive: "1984-1993, 1995-1998, 2001-2003",
+    championships: 6,
+    position: "Shooting Guard",
+    height: "6'6\"",
+    weight: 216,
+  },
+  {
+    name: "Kobe Bryant",
+    team: "Los Angeles Lakers",
+    yearsActive: "1996-2016",
+    championships: 5,
+    position: "Shooting Guard",
+    height: "6'6\"",
+    weight: 212,
+  },
+  {
+    name: "Shaquille O'Neal",
+    team: "Los Angeles Lakers",
+    yearsActive: "1992-2011",
+    championships: 4,
+    position: "Center",
+    height: "7'1\"",
+    weight: 325,
+  },
+  {
+    name: "Tim Duncan",
+    team: "San Antonio Spurs",
+    yearsActive: "1997-2016",
+    championships: 5,
+    position: "Power Forward / Center",
+    height: "6'11\"",
+    weight: 250,
+  },
+  {
+    name: "LeBron James",
+    team: "Cleveland Cavaliers, Miami Heat, Los Angeles Lakers",
+    yearsActive: "2003-present",
+    championships: 4,
+    position: "Small Forward",
+    height: "6'9\"",
+    weight: 250,
+  },
+  {
+    name: "Hakeem Olajuwon",
+    team: "Houston Rockets",
+    yearsActive: "1984-2002",
+    championships: 2,
+    position: "Center",
+    height: "7'0\"",
+    weight: 255,
+  },
+  {
+    name: "Larry Bird",
+    team: "Boston Celtics",
+    yearsActive: "1979-1992",
+    championships: 3,
+    position: "Small Forward",
+    height: "6'9\"",
+    weight: 220,
+  },
+  {
+    name: "Magic Johnson",
+    team: "Los Angeles Lakers",
+    yearsActive: "1979-1991, 1996",
+    championships: 5,
+    position: "Point Guard",
+    height: "6'9\"",
+    weight: 215,
+  },
+  {
+    name: "Karl Malone",
+    team: "Utah Jazz, Los Angeles Lakers",
+    yearsActive: "1985-2004",
+    championships: 0,
+    position: "Power Forward",
+    height: "6'9\"",
+    weight: 250,
+  },
+  {
+    name: "Kevin Garnett",
+    team: "Minnesota Timberwolves, Boston Celtics",
+    yearsActive: "1995-2016",
+    championships: 1,
+    position: "Power Forward / Center",
+    height: "6'11\"",
+    weight: 240,
+  },
+];
+
 // ========== initApp ========== //
 
 function initApp() {
@@ -87,6 +180,7 @@ function initApp() {
   //   teachersOver40();
   //   searchTeachersByName("lind");
   // forInTeacher();
+  // forInSearch("ras");
   // lastFive();
   //   whileTeachersLength();
   // whileTeacherIsLecturer();
@@ -146,6 +240,7 @@ function teachersOver40() {
   }
   console.log(over40);
 }
+
 function searchTeachersByName(searchValue) {
   searchValue = searchValue.toLowerCase();
   const result = [];
@@ -163,6 +258,17 @@ function forInTeacher() {
   for (const key in teacher) {
     const value = teacher[key];
     console.log(`${key}: ${value}`);
+  }
+}
+
+function forInSearch(searchValue1) {
+  searchValue1 = searchValue1.toLowerCase();
+  for (let key in teachers) {
+    const teacher = teachers[key];
+    const teacherName = teacher.name.toLowerCase();
+    if (teacherName.includes(searchValue1)) {
+      console.log(teacher.name);
+    }
   }
 }
 
@@ -210,5 +316,18 @@ function whileSearchByName(searchValue) {
 
 // ========== Sorting: array.sort() ========== //
 
-console.log("the array length of names is: " + names.length);
-console.log("The last index is: " + names.length - 1);
+// console.log("the array length of names is: " + names.length);
+// console.log("The last index is: " + names.length - 1);
+
+nbaRings();
+function nbaRings() {
+  const mostRings = [];
+  for (const player of nbaStars) {
+    const rings = player.championships;
+    if (rings > 3) {
+      mostRings.push(player);
+      console.log(player.name);
+    }
+  }
+  console.log(mostRings);
+}
